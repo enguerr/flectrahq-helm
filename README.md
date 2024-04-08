@@ -10,6 +10,10 @@ this helm is not currently production ready but provides a way to execute and te
 ##TODO
 - add postgresql waiter in init container to replace this dumb sleep 30... 
 
+## REQUIREMENT
+- HELM v3.0 or later
+- clone this repository
+
 ## INSTALL
 ```
 helm install -n flectra flectra . -f values.yaml --create-namespace
