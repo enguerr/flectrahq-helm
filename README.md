@@ -16,6 +16,7 @@ this helm is not currently production ready but provides a way to execute and te
 
 ## INSTALL
 ```
+helm dependency update
 helm install -n flectra flectra . -f values.yaml --create-namespace
 ```
 ## UPGRADE
