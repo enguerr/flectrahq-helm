@@ -1,5 +1,5 @@
 # Package Helm Chart for FlectraHQ
-##Flectra
+##Flectra 3.0 HELM CHART
 Flectra is a suite of web based open source business apps.
 The main Flectra Apps include an Open Source CRM, Website Builder, eCommerce, Warehouse Management, Project Management, Billing & Accounting, Point of Sale, Human Resources, Marketing, Manufacturing, ...
 
@@ -21,4 +21,10 @@ helm install -n flectra flectra . -f values.yaml --create-namespace
 ## UPGRADE
 ```
 helm upgrade -n flectra flectra . -f values.yaml
+```
+
+## INIT DB (first run)
+Connect on shell on pod flectra and run the command below
+```bash
+flectra-bin -i base --stop-after-init --db_host=$HOST --db_user $USER --db_password $PASSWORD --database $USER --without-demo=all
 ```

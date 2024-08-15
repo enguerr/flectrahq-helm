@@ -8,7 +8,7 @@ image:
   repository: flectrahq/flectra
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.7"
+  tag: "3.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -31,7 +31,7 @@ podLabels: {}
 initContainers:
   - name: volume-mount-hack
     image: busybox
-    command: ["sh", "-c", "chown -R 101:101 /var/lib/flectra/filestore && chown -R 101:101 /mnt/flectra-addons && echo 'wait 60s' && sleep 30"]
+    command: ["sh", "-c", "chown -R 1000:1000 /var/lib/flectra/filestore && chown -R 101:101 /mnt/flectra-addons && echo 'wait 30s' && sleep 30"]
     volumeMounts:
       - name: flectra-data
         mountPath: "/var/lib/flectra/filestore"
@@ -42,9 +42,9 @@ podSecurityContext: {}
   # fsGroup: 2000
 
 securityContext:
-  fsGroup: 101
-  runAsUser: 101
-  runAsGroup: 101
+  fsGroup: 1000
+  runAsUser: 1000
+  runAsGroup: 1000
 
 service:
   type: ClusterIP
@@ -112,4 +112,4 @@ postgresql:
     password: "flectra"
     database: "flectra"
   image:
-    tag: 12
+    tag: 16
