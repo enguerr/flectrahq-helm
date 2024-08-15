@@ -31,7 +31,7 @@ podLabels: {}
 initContainers:
   - name: volume-mount-hack
     image: busybox
-    command: ["sh", "-c", "chown -R 1000:1000 /var/lib/flectra/filestore && chown -R 101:101 /mnt/flectra-addons && echo 'wait 30s' && sleep 30"]
+    command: ["sh", "-c", "chown -R 1000:1000 /var/lib/flectra/filestore && chown -R 1000:1000 /mnt/flectra-addons && echo 'wait 30s' && sleep 30"]
     volumeMounts:
       - name: flectra-data
         mountPath: "/var/lib/flectra/filestore"

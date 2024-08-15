@@ -69,10 +69,19 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
+            - name: {{ include "flectrahq.fullname" $ }}-config
+              mountPath: /etc/flectra/flectra.conf
+              subPath: flectra.conf
             {{- toYaml . | nindent 12 }}
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
+        - name: {{ include "flectrahq.fullname" $ }}-config
+          configMap:
+            name: {{ include "flectrahq.fullname" $ }}-config
+            items:
+              - key: flectra.conf
+                path: flectra.conf
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}

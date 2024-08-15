@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "flectrahq.fullname" . }}-config
+  labels:
+    {{- include "flectrahq.labels" . | nindent 4 }}
+data:
+  flectra.conf: |
+    [options]
+    addons_path = /opt/flectra/server/flectra/addons,/opt/flectra/server/addons,/mnt/extra-addons
+    data_dir = /var/lib/flectra
+    admin_passwd = $pbkdf2-sha512$600000$cS7FuNfae2/Nubd2LuXcOw$bfk9t/W.oueHm2lrYDZz3PU54UXb8.JtEQrOdm84O6DRmAt4QMq5jbYOrjXjhtI9Apiw2EcPNB8CRRw3xkAUTA
+    csv_internal_sep = ,
+    server_wide_modules = base,web,web_flectra
+    proxy_mode = True
