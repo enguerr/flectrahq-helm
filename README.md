@@ -1,5 +1,5 @@
 # Package Helm Chart for FlectraHQ
-##Flectra 3.0 HELM CHART
+## Flectra 3.0 HELM CHART
 Flectra is a suite of web based open source business apps.
 The main Flectra Apps include an Open Source CRM, Website Builder, eCommerce, Warehouse Management, Project Management, Billing & Accounting, Point of Sale, Human Resources, Marketing, Manufacturing, ...
 
@@ -7,7 +7,7 @@ Flectra Apps can be used as stand-alone applications, but they also integrate se
 ## Status
 this helm is not currently production ready but provides a way to execute and test the deployment.
 
-##TODO
+## TODO
 - add postgresql waiter in init container to replace this dumb sleep 30... 
 
 ## REQUIREMENT
@@ -15,12 +15,12 @@ this helm is not currently production ready but provides a way to execute and te
 - clone this repository
 
 ## INSTALL
-```
+```bash
 helm dependency update
 helm install -n flectra flectra . -f values.yaml --create-namespace
 ```
 ## UPGRADE
-```
+```bash
 helm upgrade -n flectra flectra . -f values.yaml
 ```
 
